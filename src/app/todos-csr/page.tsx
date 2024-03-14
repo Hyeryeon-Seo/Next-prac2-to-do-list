@@ -46,9 +46,7 @@ const TodosCSRPage = () => {
 	});
 
 	// useMutation - patch todo (toggle isDone)
-	const toggleDoneMutation = useMutation({
-		// mu,
-	});
+	const toggleDoneMutation = useMutation({});
 
 	// useMutation - delete todo
 	const deleteTodoMutation = useMutation({
