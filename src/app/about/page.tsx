@@ -9,11 +9,17 @@ const AboutPage = async () => {
 
 	const companyInfo = await response.json(); // {name: .., description:.., image:..}
 	return (
-		<div>
-			<p>{companyInfo.name}</p>
-			<p>{companyInfo.description}</p>
-			<img src={companyInfo.image} />
-			<p>fsdfsdf</p>
+		<div className="flex flex-col items-center m-20 gap-20">
+			<img
+				src={companyInfo.image}
+				alt="company-note-img"
+				width={500}
+				className="rounded"
+			/>
+			<p className="font-bold text-lg bg-rose-600/10 rounded p-3">
+				🏢 {companyInfo.name}
+			</p>
+			<p className="pl-56 pr-52 font-bold">{companyInfo.description}</p>
 		</div>
 	);
 };
