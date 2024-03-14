@@ -3,11 +3,12 @@
 import type { NewTodo, Todo } from "@/types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NotFoundPage from "../not-found";
 import { useRouter } from "next/navigation";
 import CustomButton from "@/components/Button";
 import TodoItem from "@/components/TodoItem";
+import useTodo from "@/hooks/TodoList.hooks";
 
 const TodosCSRPage = () => {
   // TODO 컴포넌트 분리 / axios... 변수 타입 적어보기
@@ -16,6 +17,11 @@ const TodosCSRPage = () => {
   // useState를 꼭 써야 하나? title, contents .. (input  => input name 활용하기
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
+
+  const toggleTodo = useTodo();
+  //   useEffect(() => {
+  //     toggleTodo({ id: "e52c", isDone: true });
+  //   }, []);
 
   const {
     data: todos,
@@ -47,25 +53,25 @@ const TodosCSRPage = () => {
   });
 
   // useMutation - patch todo (toggle isDone)
-  const toggleDoneMutation = useMutation({
-    mutationFn: async ({
-      id,
-      isDone,
-    }: {
-      id: Todo["id"];
-      isDone: Todo["isDone"];
-    }) => {
-      const response = await fetch(`http://localhost:3000/api/todos`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id, isDone }),
-      });
-      const todo = await response.json();
-      return todo;
-    },
-  });
+  //   const toggleDoneMutation = useMutation({
+  //     mutationFn: async ({
+  //       id,
+  //       isDone,
+  //     }: {
+  //       id: Todo["id"];
+  //       isDone: Todo["isDone"];
+  //     }) => {
+  //       const response = await fetch(`http://localhost:3000/api/todos`, {
+  //         method: "PATCH",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ id, isDone }),
+  //       });
+  //       const todo = await response.json();
+  //       return todo;
+  //     },
+  //   });
 
   // useMutation - delete todo
   const deleteTodoMutation = useMutation({
@@ -169,16 +175,7 @@ const TodosCSRPage = () => {
               <div className="flex justify-between">
                 <CustomButton
                   onClick={() =>
-                    toggleDoneMutation.mutate(
-                      { id: todo.id, isDone: todo.isDone },
-                      {
-                        onSuccess: () => {
-                          queryClient.invalidateQueries({
-                            queryKey: ["todos"],
-                          });
-                        },
-                      },
-                    )
+                    toggleTodo({ id: todo.id, isDone: todo.isDone })
                   }
                   classNameProperty="bg-sky-200/70 hover:bg-sky-200/80 text-[#504b4b] px-6"
                 >
