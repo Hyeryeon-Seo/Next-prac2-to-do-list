@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_KR } from 'next/font/google';
 import './globals.css';
-import Link from 'next/link';
 import QueryProvider from './provider';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { NavBar } from '@/components/NavBar';
 
 const noto_sans = Noto_Sans_KR({ subsets: ['latin'] });
 
@@ -22,26 +22,8 @@ export default function RootLayout({
         <html lang="en">
             <body className={noto_sans.className}>
                 <ToastContainer />
-                <div>
-                    <nav className="flex gap-10 border-b-2 border-gray-300/80 bg-rose-200/20 p-5 font-bold">
-                        <Link href={`/`} className="hover:text-green-900/90">
-                            Home
-                        </Link>
-                        <Link href={`/about`} className="hover:text-green-900/90">
-                            About
-                        </Link>
-                        <Link href={`/report`} className="hover:text-green-900/90">
-                            Report
-                        </Link>
-                        <Link href={`/todos-csr`} className="hover:text-green-900/90">
-                            To-Dos-CSR
-                        </Link>
-                        <Link href={`/todos-ssr`} className="hover:text-green-900/90">
-                            To-Dos-SSR
-                        </Link>
-                    </nav>
-                    <QueryProvider>{children}</QueryProvider>
-                </div>
+                <NavBar />
+                <QueryProvider>{children}</QueryProvider>
             </body>
         </html>
     );
