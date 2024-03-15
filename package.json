@@ -38,5 +38,9 @@
     "engine": {
         "node": "18.19.1",
         "npm": "10.2.4"
-    }
+    },
+    "main": "index.js",
+    "repository": "https://github.com/Hyeryeon-Seo/Next-prac2-to-do-list.git",
+    "author": "Hyeryeon-Seo <0168968060@naver.com>",
+    "license": "MIT"
 }
