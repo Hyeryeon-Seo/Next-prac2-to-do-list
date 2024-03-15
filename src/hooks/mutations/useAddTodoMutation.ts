@@ -8,15 +8,13 @@ const useAddTodoMutation = () => {
     // useMutation - add todo
     const { mutate: newTodoMutation } = useMutation({
         mutationFn: async (newTodo: NewTodo) => {
-            const response = await fetch(`http://localhost:3000/api/todos`, {
+            await fetch(`http://localhost:3000/api/todos`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(newTodo)
             });
-            const todo = await response.json();
-            return todo;
         }
     });
 
