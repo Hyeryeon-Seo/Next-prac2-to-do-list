@@ -18,7 +18,7 @@ const useAddTodoMutation = () => {
         }
     });
 
-    const handleSubmitTodo = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmitTodo = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
@@ -26,10 +26,10 @@ const useAddTodoMutation = () => {
         const contents = formData.get('contents') as string;
 
         if (!title.trim() || !contents.trim()) {
-            alert('제목과 내용 모두 입력해주세요! ( ◡‿◡ )');
-            return;
+            return alert('제목과 내용 모두 입력해주세요! ( ◡‿◡ )');
         }
-        newTodoMutation(
+        e.currentTarget.reset(); // 아래에 await 써준 경우 reset 위로 올려야
+        await newTodoMutation(
             { title, contents },
             {
                 onSuccess: () => {
@@ -39,7 +39,6 @@ const useAddTodoMutation = () => {
                 }
             }
         );
-        e.currentTarget.reset();
     };
 
     return handleSubmitTodo;

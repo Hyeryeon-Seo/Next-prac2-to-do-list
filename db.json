@@ -1,21 +1,21 @@
 {
-    "companyInfo": {
-        "name": "주식회사 NBCamp Ryeon",
-        "description": "저희 회사 NBCamp Ryeon은 해당 사이트에서 여러분의 할 일 (to-do) 을 보다 쉽게 관리할 수 있도록 서비스를 제공하고 있습니다. To Do List 페이지 (To-Dos) 에서 여러분의 할 일을 추가하고 완수해보세요! 또한 Report 를 통해 할 일 목록과 완수 상태를 한 눈에 파악할 수 있답니다!",
-        "image": "/calmnote_paico-oficial-unsplash.jpg"
+  "companyInfo": {
+    "name": "주식회사 NBCamp Ryeon",
+    "description": "저희 회사 NBCamp Ryeon은 해당 사이트에서 여러분의 할 일 (to-do) 을 보다 쉽게 관리할 수 있도록 서비스를 제공하고 있습니다. To Do List 페이지 (To-Dos) 에서 여러분의 할 일을 추가하고 완수해보세요! 또한 Report 를 통해 할 일 목록과 완수 상태를 한 눈에 파악할 수 있답니다!",
+    "image": "/calmnote_paico-oficial-unsplash.jpg"
+  },
+  "todos": [
+    {
+      "id": "1",
+      "title": "운동하기",
+      "contents": "스트레칭 30분이상 꼭 해주기!",
+      "isDone": false
     },
-    "todos": [
-        {
-            "id": "1",
-            "title": "운동하기",
-            "contents": "스트레칭 30분이상 꼭 해주기!",
-            "isDone": false
-        },
-        {
-            "id": "8186",
-            "title": "인증/인가 복습하기",
-            "contents": "강의 빠르게 다시 들어야..",
-            "isDone": true
-        }
-    ]
+    {
+      "id": "8186",
+      "title": "인증/인가 복습하기",
+      "contents": "강의 빠르게 다시 들어야..",
+      "isDone": true
+    }
+  ]
 }

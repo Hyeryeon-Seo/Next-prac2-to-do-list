@@ -1,3 +1,4 @@
+import type { CompanyInfo } from '@/types';
 import React from 'react';
 
 // SSG
@@ -6,7 +7,7 @@ const AboutPage = async () => {
         // 서버 컴포넌트라 바로 json-server DB 통신
         cache: 'force-cache'
     });
-    const companyInfo = await response.json();
+    const companyInfo: CompanyInfo = await response.json();
     const { image, name, description } = companyInfo;
 
     return (

@@ -8,7 +8,7 @@ const CustomButton = ({
     onClick,
     classNameProperty
 }: {
-    children?: React.PropsWithChildren<string>; // React.ReactNode; // string;
+    children?: React.PropsWithChildren<string>;
     type?: 'submit' | 'reset' | 'button';
     onClick?: () => void;
     classNameProperty?: string;

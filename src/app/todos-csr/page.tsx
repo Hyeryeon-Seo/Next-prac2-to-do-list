@@ -11,7 +11,6 @@ import TodoForm from '@/components/TodoForm';
 import TodoList from '@/components/TodoList';
 
 const TodosCSRPage = () => {
-    // TODO 컴포넌트 분리 / axios... 변수 타입 적어보기
     const router = useRouter();
 
     const {

@@ -18,8 +18,8 @@ const useDeleteTodoMutation = () => {
         }
     });
 
-    const handleDeleteTodo = (id: Todo['id']) => {
-        deleteTodoMutation(id, {
+    const handleDeleteTodo = async (id: Todo['id']) => {
+        await deleteTodoMutation(id, {
             onSuccess: () => {
                 queryClient.invalidateQueries({
                     queryKey: ['todos']

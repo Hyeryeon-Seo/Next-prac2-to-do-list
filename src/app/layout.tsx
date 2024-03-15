@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import { Noto_Sans_KR, Inter } from 'next/font/google';
+import { Noto_Sans_KR } from 'next/font/google';
 import './globals.css';
 import Link from 'next/link';
 import QueryProvider from './provider';
 
-// const inter = Inter({ subsets: ["latin"] });
 const noto_sans = Noto_Sans_KR({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
