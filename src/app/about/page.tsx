@@ -4,7 +4,7 @@ import React from 'react';
 
 // SSG
 const AboutPage = async () => {
-    const response = await fetch(`http://localhost:4000/companyInfo`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_DB_URL}/companyInfo`, {
         // 서버 컴포넌트라 바로 json-server DB 통신
         cache: 'force-cache'
     });

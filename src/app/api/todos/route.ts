@@ -1,6 +1,6 @@
 export async function GET(_request: Request) {
     try {
-        const response = await fetch(`http://localhost:4000/todos`); // json-server에 요청
+        const response = await fetch(`${process.env.NEXT_PUBLIC_DB_URL}/todos`); // json-server에 요청
         const todos = await response.json();
         if (!todos) {
             return new Response('To-dos cannot be found', {
@@ -18,7 +18,7 @@ export async function GET(_request: Request) {
 export async function POST(request: Request) {
     try {
         const { title, contents } = await request.json();
-        await fetch(`http://localhost:4000/todos`, {
+        await fetch(`${process.env.NEXT_PUBLIC_DB_URL}/todos`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

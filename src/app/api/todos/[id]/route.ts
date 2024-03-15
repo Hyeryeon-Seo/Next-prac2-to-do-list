@@ -4,7 +4,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
         // const { id, isDone } = await request.json();
         const id = params.id;
         const { isDone } = await request.json();
-        await fetch(`http://localhost:4000/todos/${id}`, {
+        await fetch(`${process.env.NEXT_PUBLIC_DB_URL}/todos/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 export async function DELETE(_: any, { params }: { params: { id: string } }) {
     // const id = await request.json();
     try {
-        await fetch(`http://localhost:4000/todos/${params.id}`, {
+        await fetch(`${process.env.NEXT_PUBLIC_DB_URL}/todos/${params.id}`, {
             method: 'DELETE'
         });
         return new Response(null, { status: 204 });

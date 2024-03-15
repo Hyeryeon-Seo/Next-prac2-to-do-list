@@ -2,7 +2,7 @@ import type { Todo } from '@/types';
 
 // ISR (10초 주기)
 const ReportPage = async () => {
-    const response = await fetch(`http://localhost:4000/todos`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_DB_URL}/todos`, {
         // 서버컴포넌트 바로 json-server와 통신
         next: {
             revalidate: 10

@@ -6,7 +6,7 @@ import React from 'react';
 
 // SSR 서버 컴포넌트 - 바로 json-server 와 통신
 const TodosSSRPage = async () => {
-    const reponse = await fetch(`http://localhost:4000/todos`, {
+    const reponse = await fetch(`${process.env.NEXT_PUBLIC_DB_URL}/todos`, {
         cache: 'no-cache'
     });
 
