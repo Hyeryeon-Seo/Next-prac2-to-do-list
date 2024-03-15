@@ -12,10 +12,12 @@ and Check your To-Do Report`}
                     </pre>
                     <p className=" mt-28 text-gray-200/30">Copyright © 2024 NBCamp Ryeon</p>
                 </div>
-                <img
-                    src="https://images.unsplash.com/photo-1606327054629-64c8b0fd6e4f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                <Image
+                    src="/calmnote_paico-oficial-unsplash.jpg"
                     alt="notebook-pen"
-                    className="w-screen bg-cover"
+                    width={6000}
+                    height={400}
+                    className="h-screen w-screen bg-cover"
                 />
             </div>
         </main>

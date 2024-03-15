@@ -1,4 +1,5 @@
 import type { CompanyInfo } from '@/types';
+import Image from 'next/image';
 import React from 'react';
 
 // SSG
@@ -12,7 +13,7 @@ const AboutPage = async () => {
 
     return (
         <div className="m-20 flex  flex-col items-center gap-14">
-            <img src={image} alt="company-note-img" width={500} className="rounded" />
+            <Image src={image} alt="company-note-img" width={500} height={500} className="rounded" />
             <p className="rounded bg-rose-600/10 px-5 py-2 text-lg font-bold">🏢 {name}</p>
             <p className="w-[54rem] font-medium leading-loose">{description}</p>
         </div>
