@@ -9,7 +9,7 @@ const useAddTodoMutation = () => {
     // useMutation - add todo
     const { mutate: newTodoMutation } = useMutation({
         mutationFn: async (newTodo: NewTodo) => {
-            await fetch(`http://localhost:3000/api/todos`, {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

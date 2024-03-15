@@ -21,7 +21,7 @@ const TodosCSRPage = () => {
         queryKey: ['todos'],
         queryFn: async () => {
             // axios 사용해보기
-            const { data } = await axios.get(`http://localhost:3000/api/todos`); // route handler 활용
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}`); // route handler 활용
             return data.todos;
         }
     });

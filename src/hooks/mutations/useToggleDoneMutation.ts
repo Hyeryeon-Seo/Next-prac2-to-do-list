@@ -9,7 +9,7 @@ const useToggleDoneMutation = () => {
     // useMutation - patch todo (toggle isDone)
     const { mutate: toggleTodoDoneMutation } = useMutation({
         mutationFn: async ({ id, isDone }: { id: Todo['id']; isDone: Todo['isDone'] }) => {
-            await fetch(`http://localhost:3000/api/todos`, {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'

@@ -9,7 +9,7 @@ const useDeleteTodoMutation = () => {
 
     const { mutate: deleteTodoMutation } = useMutation({
         mutationFn: async (id: Todo['id']) => {
-            await fetch(`http://localhost:3000/api/todos`, {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
