@@ -2,6 +2,7 @@
 
 import { Todo } from '@/types';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 
 const useDeleteTodoMutation = () => {
     const queryClient = useQueryClient();
@@ -19,13 +20,18 @@ const useDeleteTodoMutation = () => {
     });
 
     const handleDeleteTodo = async (id: Todo['id']) => {
-        await deleteTodoMutation(id, {
-            onSuccess: () => {
-                queryClient.invalidateQueries({
-                    queryKey: ['todos']
-                });
-            }
-        });
+        if (window.confirm(`정말 삭제하시겠습니까?`)) {
+            await deleteTodoMutation(id, {
+                onSuccess: () => {
+                    queryClient.invalidateQueries({
+                        queryKey: ['todos']
+                    });
+                }
+            });
+            toast.success('삭제되었습니다');
+        } else {
+            return;
+        }
     };
 
     return handleDeleteTodo;
