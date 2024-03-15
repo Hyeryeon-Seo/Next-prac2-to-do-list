@@ -1,3 +1,4 @@
+// 'use client';
 import React from 'react';
 import useToggleDoneMutation from './mutations/useToggleDoneMutation';
 import useDeleteTodoMutation from './mutations/useDeleteTodoMutation';

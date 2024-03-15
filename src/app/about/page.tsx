@@ -10,10 +10,10 @@ const AboutPage = async () => {
     const { image, name, description } = companyInfo;
 
     return (
-        <div className="m-20 flex flex-col items-center gap-20">
+        <div className="m-20 flex  flex-col items-center gap-14">
             <img src={image} alt="company-note-img" width={500} className="rounded" />
-            <p className="rounded bg-rose-600/10 p-3 text-lg font-bold">🏢 {name}</p>
-            <p className="pl-56 pr-52 font-medium">{description}</p>
+            <p className="rounded bg-rose-600/10 px-5 py-2 text-lg font-bold">🏢 {name}</p>
+            <p className="w-[54rem] font-medium leading-loose">{description}</p>
         </div>
     );
 };

@@ -1,6 +1,6 @@
-import { NewTodo, Todo } from '@/types';
+import { NewTodo } from '@/types';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React from 'react';
 
 const useAddTodoMutation = () => {
     const queryClient = useQueryClient();
@@ -27,6 +27,10 @@ const useAddTodoMutation = () => {
         const title = formData.get('title') as string;
         const contents = formData.get('contents') as string;
 
+        if (!title.trim() || !contents.trim()) {
+            alert('제목과 내용 모두 입력해주세요! ( ◡‿◡ )');
+            return;
+        }
         newTodoMutation(
             { title, contents },
             {
@@ -34,10 +38,10 @@ const useAddTodoMutation = () => {
                     queryClient.invalidateQueries({
                         queryKey: ['todos']
                     });
-                    e.currentTarget.reset();
                 }
             }
         );
+        e.currentTarget.reset();
     };
 
     return handleSubmitTodo;

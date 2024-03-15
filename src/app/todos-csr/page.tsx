@@ -3,12 +3,12 @@
 import type { Todo } from '@/types';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import NotFoundPage from '../not-found';
 import { useRouter } from 'next/navigation';
 import CustomButton from '@/components/Button';
-import TodoItem from '@/components/TodoItem';
 import TodoForm from '@/components/TodoForm';
+import TodoList from '@/components/TodoList';
 
 const TodosCSRPage = () => {
     // TODO 컴포넌트 분리 / axios... 변수 타입 적어보기
@@ -19,7 +19,6 @@ const TodosCSRPage = () => {
         isLoading,
         isError
     } = useQuery({
-        // TODO hook 으로 만들어보기
         queryKey: ['todos'],
         queryFn: async () => {
             // axios 사용해보기
@@ -28,12 +27,19 @@ const TodosCSRPage = () => {
         }
     });
 
+    const doneTodos = todos?.filter((todo: Todo) => todo.isDone === true);
+    const workingTodos = todos?.filter((todo: Todo) => todo.isDone === false);
+
     const handleReportClick = () => {
         router.push('/report');
     };
 
     if (isLoading) {
-        return <div>로딩 중입니다 .. !</div>;
+        return (
+            <div className="flex h-svh items-center justify-center text-lg ">
+                <p>로딩 중입니다. 잠시만 기다려주세요 (˶ᵔ ᵕ ᵔ˶)</p>
+            </div>
+        );
     }
 
     if (isError) {
@@ -51,11 +57,8 @@ const TodosCSRPage = () => {
                 {`> To-Do Report 보러가기`}
             </CustomButton>
             <TodoForm />
-            <section className="flex flex-wrap justify-center gap-10">
-                {todos.map((todo: Todo) => {
-                    return <TodoItem todo={todo} />;
-                })}
-            </section>
+            <TodoList title="Working" todos={workingTodos} />
+            <TodoList title="Done" todos={doneTodos} />
         </div>
     );
 };

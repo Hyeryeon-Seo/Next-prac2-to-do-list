@@ -17,7 +17,7 @@ const CustomButton = ({
         <button
             type={type}
             onClick={onClick}
-            className={`inline-block transform rounded-lg p-2 hover:delay-100 ${classNameProperty}`} // 그냥 ``하면 에러. {` `}안에 쓰기
+            className={`inline-block transform rounded-lg p-2 shadow-md hover:delay-100 ${classNameProperty}`} // 그냥 ``하면 에러. {` `}안에 쓰기
         >
             {children}
         </button>
