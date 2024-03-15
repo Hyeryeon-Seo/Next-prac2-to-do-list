@@ -7,7 +7,7 @@ const useAddTodoMutation = () => {
     const queryClient = useQueryClient();
 
     // useMutation - add todo
-    const { mutate: newTodoMutation } = useMutation({
+    const { mutateAsync: newTodoMutation } = useMutation({
         mutationFn: async (newTodo: NewTodo) => {
             await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
                 method: 'POST',
@@ -37,9 +37,13 @@ const useAddTodoMutation = () => {
                     queryClient.invalidateQueries({
                         queryKey: ['todos']
                     });
+                },
+                onError: () => {
+                    toast.error('처리에 오류가 발생했습니다. 다시 시도해주세요.');
                 }
             }
         );
+        toast.success('등록되었습니다! ( ˶ˆ ᗜ ˆ˵ )');
     };
 
     return handleSubmitTodo;

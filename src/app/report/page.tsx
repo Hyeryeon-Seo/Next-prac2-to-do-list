@@ -15,7 +15,9 @@ const ReportPage = async () => {
     const totalNumDoneTodos = todos.filter((todo: Todo) => todo.isDone === true).length;
     return (
         <div>
-            <p className="m-2 text-xs text-neutral-400">업데이트가 안되었다면 새로고침 해주세요</p>
+            <p className="m-2 text-xs text-neutral-400">
+                이 통계는 매 10초마다 갱신됩니다. 업데이트가 안되었다면 새로고침 해주세요!
+            </p>
             <div className="m-20 flex flex-col items-center">
                 <h1 className="mb-3 text-3xl font-bold">My To-Do Report</h1>
                 <p>You can see a report about your to-dos </p>

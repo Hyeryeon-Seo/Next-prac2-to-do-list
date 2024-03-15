@@ -9,12 +9,8 @@ const useDeleteTodoMutation = () => {
 
     const { mutate: deleteTodoMutation } = useMutation({
         mutationFn: async (id: Todo['id']) => {
-            await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(id)
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${id}`, {
+                method: 'DELETE'
             });
         }
     });
@@ -26,6 +22,9 @@ const useDeleteTodoMutation = () => {
                     queryClient.invalidateQueries({
                         queryKey: ['todos']
                     });
+                },
+                onError: () => {
+                    toast.error('처리에 오류가 발생했습니다. 다시 시도해주세요.');
                 }
             });
             toast.success('삭제되었습니다');
