@@ -9,7 +9,7 @@ const TodoList = ({ title, todos, page }: { title: string; todos: Todo[]; page?:
             <hr className=" border-[0.5px] border-neutral-500/10" />
             <div className="flex flex-wrap gap-10 pt-5">
                 {todos.map((todo: Todo) => {
-                    return <TodoItem todo={todo} page={page} />;
+                    return <TodoItem todo={todo} page={page} key={todo.id} />;
                 })}
             </div>
         </section>

@@ -4,12 +4,12 @@ import CustomButton from './Button';
 import { Todo } from '@/types';
 import useTodo from '@/hooks/TodoList.hooks';
 
-const TodoItem = ({ todo, page }: { todo: Todo; page?: string }) => {
+const TodoItem = ({ todo, page, key }: { todo: Todo; page?: string; key: string }) => {
     const { handleToggleTodoDone, handleDeleteTodo } = useTodo();
 
     return (
         <div
-            key={todo.id}
+            key={key}
             className="flex min-h-[15rem] w-[25rem] transform flex-col gap-1 rounded bg-[#504b4b] p-8 text-gray-300
             			shadow-sm shadow-slate-800 delay-100 hover:scale-105"
         >
