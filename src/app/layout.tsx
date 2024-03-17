@@ -21,9 +21,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={noto_sans.className}>
-                <ToastContainer />
                 <NavBar />
                 <QueryProvider>{children}</QueryProvider>
+                <ToastContainer />
             </body>
         </html>
     );

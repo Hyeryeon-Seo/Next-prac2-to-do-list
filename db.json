@@ -9,13 +9,19 @@
       "id": "1",
       "title": "운동하기",
       "contents": "스트레칭 30분이상 꼭 해주기!",
-      "isDone": true
+      "isDone": false
     },
     {
       "id": "8186",
       "title": "인증/인가 복습하기",
       "contents": "강의 빠르게 다시 들어야..",
-      "isDone": false
+      "isDone": true
+    },
+    {
+      "id": "e7da",
+      "title": "react-query 특강 복습하기!",
+      "contents": "꼬옥",
+      "isDone": true
     }
   ]
 }

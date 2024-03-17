@@ -8,7 +8,7 @@ const TodoList = ({ title, todos, page }: { title: string; todos: Todo[]; page?:
             <p className="pl-2 text-2xl font-bold text-green-900/90">{title}</p>
             <hr className=" border-[0.5px] border-neutral-500/10" />
             <div className="flex flex-wrap gap-10 pt-5">
-                {todos.map((todo: Todo) => {
+                {todos?.map((todo: Todo) => {
                     return <TodoItem todo={todo} page={page} key={todo.id} />;
                 })}
             </div>
